@@ -1,0 +1,50 @@
+{
+  "db_path": "/content/deepsdf_airport/data_sources/airport_study.alaqs",
+  "study_info": {
+    "oid": 1,
+    "airport_id": 1,
+    "alaqs_version": "0.0.1",
+    "project_name": "LFPO / Orly",
+    "airport_name": "Paris-Orly",
+    "airport_code": "LFPO",
+    "airport_country": "FR",
+    "airport_latitude": 48.73,
+    "airport_longitude": 2.36,
+    "airport_elevation": 88,
+    "airport_temperature": 15,
+    "vertical_limit": 913,
+    "roadway_method": "COPERT 5",
+    "roadway_fleet_year": "2020",
+    "roadway_country": "EU27",
+    "parking_method": null,
+    "study_info": "Not set",
+    "date_created": "2026-04-12 13:31:00",
+    "date_modified": "2026-04-12 13:47:03"
+  },
+  "origin": {
+    "center_lat": 48.73,
+    "center_lon": 2.36,
+    "origin_x_3857": 262713.99823555554,
+    "origin_y_3857": 6229171.603559617
+  },
+  "layer_counts": {
+    "buildings": 0,
+    "gates": 0,
+    "runways": 0,
+    "taxiways": 0,
+    "roadways": 0,
+    "parking": 0,
+    "area_sources": 0,
+    "point_sources": 0
+  },
+  "layers": {
+    "buildings": [],
+    "gates": [],
+    "runways": [],
+    "taxiways": [],
+    "roadways": [],
+    "parking": [],
+    "area_sources": [],
+    "point_sources": []
+  }
+}

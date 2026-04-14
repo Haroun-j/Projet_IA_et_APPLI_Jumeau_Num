@@ -1,0 +1,145 @@
+{
+  "total_scenarios": 3000,
+  "category_distribution": {
+    "1": 750,
+    "2": 750,
+    "3": 750,
+    "4": 750
+  },
+  "stability_distribution": {
+    "I": 500,
+    "II": 500,
+    "III/1": 500,
+    "III/2": 500,
+    "IV": 500,
+    "V": 500
+  },
+  "nx_distribution": {
+    "140": 1500,
+    "300": 750,
+    "500": 750
+  },
+  "zero_case_proxy_count": 422,
+  "zero_case_proxy_ratio": 0.1407,
+  "examples": [
+    {
+      "key": "scenario_00004",
+      "category": 1,
+      "stability_class": "IV",
+      "Nx": 140,
+      "Ny": 140,
+      "Nz": 64,
+      "shape": [
+        64,
+        140,
+        140
+      ],
+      "U_10": 1.3617,
+      "n_active_particles": 0,
+      "n_buildings": 4,
+      "zero_case_proxy": true
+    },
+    {
+      "key": "scenario_00009",
+      "category": 2,
+      "stability_class": "III/1",
+      "Nx": 300,
+      "Ny": 300,
+      "Nz": 64,
+      "shape": [
+        64,
+        300,
+        300
+      ],
+      "U_10": 1.6221,
+      "n_active_particles": 2347,
+      "n_buildings": 5,
+      "zero_case_proxy": false
+    },
+    {
+      "key": "scenario_00017",
+      "category": 2,
+      "stability_class": "III/1",
+      "Nx": 300,
+      "Ny": 300,
+      "Nz": 64,
+      "shape": [
+        64,
+        300,
+        300
+      ],
+      "U_10": 4.2585,
+      "n_active_particles": 562,
+      "n_buildings": 4,
+      "zero_case_proxy": false
+    },
+    {
+      "key": "scenario_00020",
+      "category": 1,
+      "stability_class": "II",
+      "Nx": 140,
+      "Ny": 140,
+      "Nz": 64,
+      "shape": [
+        64,
+        140,
+        140
+      ],
+      "U_10": 2.7157,
+      "n_active_particles": 0,
+      "n_buildings": 0,
+      "zero_case_proxy": true
+    },
+    {
+      "key": "scenario_00024",
+      "category": 1,
+      "stability_class": "III/1",
+      "Nx": 140,
+      "Ny": 140,
+      "Nz": 64,
+      "shape": [
+        64,
+        140,
+        140
+      ],
+      "U_10": 4.524,
+      "n_active_particles": 23951,
+      "n_buildings": 2,
+      "zero_case_proxy": false
+    }
+  ],
+  "dataset_resume_meta": {
+    "fichier_source": "dataset_subset_3000.h5",
+    "fichier_original": "/lustre/fsn1/projects/rech/hjh/uhf15iw/data/dataset_full.h5",
+    "date_analyse": "2026-03-28T15:13:58.911498",
+    "taille_go": 116.047,
+    "taille_octets": 124604881976
+  },
+  "dataset_resume_distribution": {
+    "par_categorie": {
+      "1": 750,
+      "2": 750,
+      "4": 750,
+      "3": 750
+    },
+    "par_classe_stabilite_atmospherique": {
+      "IV": 500,
+      "III/1": 500,
+      "II": 500,
+      "V": 500,
+      "I": 500,
+      "III/2": 500
+    },
+    "par_taille_grille": {
+      "140x140": 1500,
+      "300x300": 750,
+      "500x500": 750
+    }
+  },
+  "dataset_resume_quality": {
+    "datasets_avec_valeurs_non_nulles": 25477,
+    "datasets_totaux": 27000,
+    "pourcentage_non_nul": 94.4,
+    "note": "Les datasets \u00e0 0 correspondent \u00e0 des sc\u00e9narios sans particules actives (n_active_particles=0)"
+  }
+}

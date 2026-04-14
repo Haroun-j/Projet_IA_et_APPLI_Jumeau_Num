@@ -1,0 +1,8 @@
+{
+  "in_channels": 7,
+  "base_ch": 32,
+  "trainable_params": 22583457,
+  "trainable_params_millions": 22.583,
+  "under_2m_budget": false,
+  "notes": "Accuracy-first H100 configuration with larger context, corrected wind-aware augmentation, plume-focused weighting, and full-volume validation subset selection."
+}

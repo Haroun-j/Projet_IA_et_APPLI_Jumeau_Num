@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-04-05T23:02:58+0000",
+  "cwd": "/workspace",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]",
+  "platform": "Linux-5.15.0-173-generic-x86_64-with-glibc2.39",
+  "pytorch": "2.11.0+cu128",
+  "device": "cuda",
+  "gpu_name": "NVIDIA H100 PCIe",
+  "gpu_memory_gb": 84.929,
+  "bf16_supported": true,
+  "dataset_path": "/workspace/data/dataset_subset_3000.h5",
+  "dataset_size_gb": 124.605
+}

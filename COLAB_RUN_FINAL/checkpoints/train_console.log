@@ -1,0 +1,258 @@
+Device: cuda
+  GPU: Tesla T4
+/content/deepsdf_airport/train.py:582: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=True)
+  AMP enabled : True
+  AMP dtype   : float16
+
+Loading dataset: /content/deepsdf_airport/data/sdf_dataset/sdf_dataset.pt
+
+Dataset diagnostics:
+  mean(|sdf|)            : 0.787887
+  median(|sdf|)          : 0.583201
+  exact surface zeros    : 24.92%
+  near-surface non-zero  : 21.79%
+  clamped far samples    : 17.39%
+  2,100,000 points loaded
+/usr/local/lib/python3.12/dist-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+  Train points: 2,037,000
+  Val points  : 63,000
+  Batch size  : 16,384
+  Surface band: 0.50000
+  Parameters  : 1,891,841
+  Loaded Paris-Orly_buildings.obj: 11,252 verts / 19,816 faces
+
+============================================================================
+Training for 200 epochs  |  clamp delta = 2.0
+Primary selection metric: validation near-surface loss
+Geometry probe every 20 epochs
+============================================================================
+/usr/local/lib/python3.12/dist-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+Epoch    1/200  train=0.338746  val=0.695318  surface=0.239863  zero=0.783182  pred_mean=-0.04437  pred_std=0.39874  lr=2.00e-04  best  33.5s
+Epoch    2/200  train=0.289543  val=0.544625  surface=0.237991  zero=0.783182  pred_mean=0.12494  pred_std=0.68457  lr=2.00e-04  best  32.6s
+Epoch    3/200  train=0.254964  val=0.482534  surface=0.192811  zero=0.783182  pred_mean=0.20459  pred_std=0.71619  lr=2.00e-04  best  32.6s
+Epoch    4/200  train=0.236647  val=0.463266  surface=0.185209  zero=0.783182  pred_mean=0.20920  pred_std=0.72278  lr=2.00e-04  best  32.3s
+Epoch    5/200  train=0.226548  val=0.446449  surface=0.176542  zero=0.783182  pred_mean=0.21072  pred_std=0.72717  lr=2.00e-04  best  33.2s
+Epoch    6/200  train=0.217759  val=0.430410  surface=0.172784  zero=0.783182  pred_mean=0.20966  pred_std=0.73572  lr=2.00e-04  best  32.7s
+Epoch    7/200  train=0.209487  val=0.414418  surface=0.168174  zero=0.783182  pred_mean=0.21896  pred_std=0.74524  lr=1.99e-04  best  32.3s
+Epoch    8/200  train=0.202553  val=0.401168  surface=0.163010  zero=0.783182  pred_mean=0.22205  pred_std=0.75244  lr=1.99e-04  best  32.9s
+Epoch    9/200  train=0.196418  val=0.388205  surface=0.158344  zero=0.783182  pred_mean=0.21722  pred_std=0.76099  lr=1.99e-04  best  34.1s
+Epoch   10/200  train=0.190230  val=0.376638  surface=0.152513  zero=0.783182  pred_mean=0.21790  pred_std=0.76587  lr=1.99e-04  best  32.4s
+Epoch   11/200  train=0.185524  val=0.367604  surface=0.153078  zero=0.783182  pred_mean=0.22076  pred_std=0.77563  lr=1.99e-04    33.0s
+Epoch   12/200  train=0.180036  val=0.360926  surface=0.159280  zero=0.783182  pred_mean=0.19025  pred_std=0.79358  lr=1.98e-04    31.8s
+Epoch   13/200  train=0.181777  val=0.359984  surface=0.155440  zero=0.783182  pred_mean=0.14014  pred_std=0.80908  lr=1.98e-04    32.7s
+Epoch   14/200  train=0.170545  val=0.351783  surface=0.154773  zero=0.783182  pred_mean=0.13660  pred_std=0.81628  lr=1.98e-04    33.1s
+Epoch   15/200  train=0.166944  val=0.342521  surface=0.153492  zero=0.783182  pred_mean=0.12689  pred_std=0.82678  lr=1.97e-04    31.7s
+Epoch   16/200  train=0.164209  val=0.332963  surface=0.145922  zero=0.783182  pred_mean=0.19055  pred_std=0.81238  lr=1.97e-04  best  32.2s
+Epoch   17/200  train=0.169429  val=0.328770  surface=0.153037  zero=0.783182  pred_mean=0.15140  pred_std=0.83252  lr=1.96e-04    32.6s
+Epoch   18/200  train=0.162685  val=0.324686  surface=0.149091  zero=0.783182  pred_mean=0.13211  pred_std=0.84070  lr=1.96e-04    31.1s
+Epoch   19/200  train=0.151881  val=0.316850  surface=0.148867  zero=0.783182  pred_mean=0.12250  pred_std=0.84985  lr=1.96e-04    31.9s
+Epoch   20/200  train=0.148666  val=0.309846  surface=0.146506  zero=0.783182  pred_mean=0.12512  pred_std=0.85535  lr=1.95e-04    31.3s
+  -> Geometry probe at epoch 20
+     IoU=0.2534  P=0.5727  R=0.3125  boundary=0.020  score=0.7585
+Epoch   21/200  train=0.146130  val=0.303886  surface=0.140761  zero=0.783182  pred_mean=0.17062  pred_std=0.84668  lr=1.95e-04  best  33.4s
+Epoch   22/200  train=0.145438  val=0.299568  surface=0.143858  zero=0.783182  pred_mean=0.12483  pred_std=0.86560  lr=1.94e-04    33.8s
+Epoch   23/200  train=0.141915  val=0.293286  surface=0.139767  zero=0.783182  pred_mean=0.13226  pred_std=0.86597  lr=1.94e-04  best  31.4s
+Epoch   24/200  train=0.138707  val=0.288582  surface=0.137407  zero=0.783182  pred_mean=0.13754  pred_std=0.86755  lr=1.93e-04  best  32.9s
+Epoch   25/200  train=0.142957  val=0.282644  surface=0.136998  zero=0.783182  pred_mean=0.23547  pred_std=0.84302  lr=1.92e-04  best  33.1s
+Epoch   26/200  train=0.136256  val=0.271729  surface=0.130121  zero=0.783182  pred_mean=0.22687  pred_std=0.85278  lr=1.92e-04  best  34.2s
+Epoch   27/200  train=0.132414  val=0.268539  surface=0.129719  zero=0.783182  pred_mean=0.22864  pred_std=0.85413  lr=1.91e-04  best  33.5s
+Epoch   28/200  train=0.129693  val=0.267783  surface=0.139997  zero=0.783182  pred_mean=0.20447  pred_std=0.86938  lr=1.91e-04    32.9s
+Epoch   29/200  train=0.139774  val=0.273358  surface=0.140053  zero=0.783182  pred_mean=0.13065  pred_std=0.88123  lr=1.90e-04    32.3s
+Epoch   30/200  train=0.130384  val=0.263949  surface=0.129326  zero=0.783182  pred_mean=0.14288  pred_std=0.88623  lr=1.89e-04  best  32.2s
+Epoch   31/200  train=0.124439  val=0.259381  surface=0.129340  zero=0.783182  pred_mean=0.13824  pred_std=0.89099  lr=1.88e-04    33.5s
+Epoch   32/200  train=0.121979  val=0.256103  surface=0.127260  zero=0.783182  pred_mean=0.14261  pred_std=0.89270  lr=1.88e-04  best  31.8s
+Epoch   33/200  train=0.120183  val=0.253528  surface=0.129290  zero=0.783182  pred_mean=0.15988  pred_std=0.89758  lr=1.87e-04    32.7s
+Epoch   34/200  train=0.123254  val=0.250135  surface=0.126545  zero=0.783182  pred_mean=0.17554  pred_std=0.89331  lr=1.86e-04  best  32.2s
+Epoch   35/200  train=0.122910  val=0.246551  surface=0.126901  zero=0.783182  pred_mean=0.18945  pred_std=0.88391  lr=1.85e-04    33.7s
+Epoch   36/200  train=0.121635  val=0.261781  surface=0.140974  zero=0.783182  pred_mean=0.13651  pred_std=0.89929  lr=1.85e-04    32.6s
+Epoch   37/200  train=0.131007  val=0.250001  surface=0.141587  zero=0.783182  pred_mean=0.20670  pred_std=0.88147  lr=1.84e-04    31.1s
+Epoch   38/200  train=0.127607  val=0.244291  surface=0.128367  zero=0.783182  pred_mean=0.16159  pred_std=0.90454  lr=1.83e-04    31.2s
+Epoch   39/200  train=0.123475  val=0.252060  surface=0.147384  zero=0.783182  pred_mean=0.10515  pred_std=0.91943  lr=1.82e-04    31.5s
+Epoch   40/200  train=0.117974  val=0.227821  surface=0.115263  zero=0.783182  pred_mean=0.23129  pred_std=0.88623  lr=1.81e-04  best  31.5s
+  -> Geometry probe at epoch 40
+     IoU=0.2858  P=0.6275  R=0.3442  boundary=0.024  score=0.8480
+Epoch   41/200  train=0.109671  val=0.224738  surface=0.112954  zero=0.783182  pred_mean=0.22836  pred_std=0.88892  lr=1.80e-04  best  33.4s
+Epoch   42/200  train=0.107427  val=0.222621  surface=0.115037  zero=0.783182  pred_mean=0.23575  pred_std=0.89050  lr=1.79e-04    36.3s
+Epoch   43/200  train=0.105820  val=0.219748  surface=0.114196  zero=0.783182  pred_mean=0.23279  pred_std=0.89526  lr=1.78e-04    30.8s
+Epoch   44/200  train=0.104311  val=0.217553  surface=0.113194  zero=0.783182  pred_mean=0.23105  pred_std=0.89648  lr=1.77e-04    31.4s
+Epoch   45/200  train=0.103364  val=0.214546  surface=0.111561  zero=0.783182  pred_mean=0.22784  pred_std=0.89880  lr=1.76e-04  best  32.5s
+Epoch   46/200  train=0.102059  val=0.213685  surface=0.111036  zero=0.783182  pred_mean=0.22910  pred_std=0.90051  lr=1.75e-04  best  34.2s
+Epoch   47/200  train=0.104242  val=0.214656  surface=0.113000  zero=0.783182  pred_mean=0.22662  pred_std=0.90210  lr=1.74e-04    36.2s
+Epoch   48/200  train=0.100945  val=0.210638  surface=0.112957  zero=0.783182  pred_mean=0.20499  pred_std=0.90967  lr=1.73e-04    32.5s
+Epoch   49/200  train=0.102650  val=0.210976  surface=0.108681  zero=0.783182  pred_mean=0.18301  pred_std=0.92065  lr=1.72e-04  best  32.4s
+Epoch   50/200  train=0.102505  val=0.215467  surface=0.116744  zero=0.783182  pred_mean=0.18765  pred_std=0.91577  lr=1.71e-04    33.9s
+Epoch   51/200  train=0.101218  val=0.212580  surface=0.113744  zero=0.783182  pred_mean=0.14841  pred_std=0.92578  lr=1.70e-04    32.9s
+Epoch   52/200  train=0.095937  val=0.210778  surface=0.113144  zero=0.783182  pred_mean=0.15091  pred_std=0.92786  lr=1.69e-04    31.4s
+Epoch   53/200  train=0.094646  val=0.207648  surface=0.110791  zero=0.783182  pred_mean=0.15475  pred_std=0.92725  lr=1.67e-04    31.1s
+Epoch   54/200  train=0.093608  val=0.207434  surface=0.111814  zero=0.783182  pred_mean=0.15454  pred_std=0.92969  lr=1.66e-04    31.5s
+Epoch   55/200  train=0.092651  val=0.206953  surface=0.111827  zero=0.783182  pred_mean=0.16641  pred_std=0.93250  lr=1.65e-04    31.5s
+Epoch   56/200  train=0.098188  val=0.207020  surface=0.113294  zero=0.783182  pred_mean=0.15884  pred_std=0.92493  lr=1.64e-04    32.7s
+Epoch   57/200  train=0.095158  val=0.200674  surface=0.106876  zero=0.783182  pred_mean=0.18201  pred_std=0.93140  lr=1.63e-04  best  32.5s
+Epoch   58/200  train=0.089755  val=0.200712  surface=0.114498  zero=0.783182  pred_mean=0.19049  pred_std=0.92773  lr=1.61e-04    32.4s
+Epoch   59/200  train=0.089954  val=0.199558  surface=0.120763  zero=0.783182  pred_mean=0.24661  pred_std=0.92798  lr=1.60e-04    31.4s
+Epoch   60/200  train=0.093855  val=0.191567  surface=0.102920  zero=0.783182  pred_mean=0.20325  pred_std=0.92383  lr=1.59e-04  best  31.2s
+  -> Geometry probe at epoch 60
+     IoU=0.3012  P=0.6790  R=0.3512  boundary=0.019  score=0.9024
+Epoch   61/200  train=0.090726  val=0.196885  surface=0.106752  zero=0.783182  pred_mean=0.17126  pred_std=0.93250  lr=1.58e-04    34.5s
+Epoch   62/200  train=0.088932  val=0.193626  surface=0.103825  zero=0.783182  pred_mean=0.16403  pred_std=0.93530  lr=1.56e-04    31.5s
+Epoch   63/200  train=0.085698  val=0.192385  surface=0.102854  zero=0.783182  pred_mean=0.16394  pred_std=0.93689  lr=1.55e-04  best  31.8s
+Epoch   64/200  train=0.084617  val=0.190703  surface=0.102648  zero=0.783182  pred_mean=0.16592  pred_std=0.93811  lr=1.54e-04  best  32.7s
+Epoch   65/200  train=0.083590  val=0.189887  surface=0.102294  zero=0.783182  pred_mean=0.16806  pred_std=0.93823  lr=1.52e-04  best  34.7s
+Epoch   66/200  train=0.082949  val=0.189484  surface=0.102424  zero=0.783182  pred_mean=0.16928  pred_std=0.94067  lr=1.51e-04    32.5s
+Epoch   67/200  train=0.082287  val=0.188001  surface=0.103089  zero=0.783182  pred_mean=0.16541  pred_std=0.94104  lr=1.50e-04    31.6s
+Epoch   68/200  train=0.081564  val=0.188011  surface=0.103919  zero=0.783182  pred_mean=0.16486  pred_std=0.94324  lr=1.48e-04    31.9s
+Epoch   69/200  train=0.081172  val=0.188260  surface=0.104680  zero=0.783182  pred_mean=0.16968  pred_std=0.94519  lr=1.47e-04    32.0s
+Epoch   70/200  train=0.080529  val=0.185414  surface=0.103230  zero=0.783182  pred_mean=0.17935  pred_std=0.94775  lr=1.46e-04    32.4s
+Epoch   71/200  train=0.083167  val=0.186642  surface=0.104537  zero=0.783182  pred_mean=0.17007  pred_std=0.93787  lr=1.44e-04    33.4s
+Epoch   72/200  train=0.082179  val=0.185422  surface=0.102933  zero=0.783182  pred_mean=0.17242  pred_std=0.93750  lr=1.43e-04    31.5s
+Epoch   73/200  train=0.082157  val=0.182102  surface=0.099971  zero=0.783182  pred_mean=0.18332  pred_std=0.94519  lr=1.41e-04  best  31.4s
+Epoch   74/200  train=0.077701  val=0.180022  surface=0.098949  zero=0.783182  pred_mean=0.18628  pred_std=0.94763  lr=1.40e-04  best  32.8s
+Epoch   75/200  train=0.080457  val=0.175205  surface=0.095836  zero=0.783182  pred_mean=0.23093  pred_std=0.93347  lr=1.39e-04  best  34.8s
+Epoch   76/200  train=0.076519  val=0.174096  surface=0.095017  zero=0.783182  pred_mean=0.23145  pred_std=0.93445  lr=1.37e-04  best  33.7s
+Epoch   77/200  train=0.075426  val=0.173000  surface=0.094514  zero=0.783182  pred_mean=0.22882  pred_std=0.93616  lr=1.36e-04  best  34.3s
+Epoch   78/200  train=0.074918  val=0.171743  surface=0.093270  zero=0.783182  pred_mean=0.22659  pred_std=0.93591  lr=1.34e-04  best  35.2s
+Epoch   79/200  train=0.074054  val=0.172049  surface=0.095370  zero=0.783182  pred_mean=0.23148  pred_std=0.93762  lr=1.33e-04    33.4s
+Epoch   80/200  train=0.073779  val=0.170845  surface=0.093751  zero=0.783182  pred_mean=0.22485  pred_std=0.93774  lr=1.31e-04    31.7s
+  -> Geometry probe at epoch 80
+     IoU=0.3063  P=0.6924  R=0.3545  boundary=0.016  score=0.9199
+Epoch   81/200  train=0.073116  val=0.170360  surface=0.094089  zero=0.783182  pred_mean=0.21689  pred_std=0.93896  lr=1.30e-04    33.3s
+Epoch   82/200  train=0.076307  val=0.171563  surface=0.094947  zero=0.783182  pred_mean=0.22549  pred_std=0.94080  lr=1.28e-04    32.1s
+Epoch   83/200  train=0.075226  val=0.175682  surface=0.096779  zero=0.783182  pred_mean=0.18085  pred_std=0.94861  lr=1.27e-04    32.2s
+Epoch   84/200  train=0.071723  val=0.172923  surface=0.096083  zero=0.783182  pred_mean=0.18509  pred_std=0.95386  lr=1.25e-04    32.3s
+Epoch   85/200  train=0.071705  val=0.169589  surface=0.095160  zero=0.783182  pred_mean=0.23410  pred_std=0.94031  lr=1.24e-04    33.4s
+Epoch   86/200  train=0.071014  val=0.167335  surface=0.092608  zero=0.783182  pred_mean=0.23102  pred_std=0.94006  lr=1.22e-04  best  33.7s
+Epoch   87/200  train=0.069410  val=0.166477  surface=0.092222  zero=0.783182  pred_mean=0.22952  pred_std=0.94116  lr=1.21e-04  best  33.7s
+Epoch   88/200  train=0.068856  val=0.165672  surface=0.092218  zero=0.783182  pred_mean=0.23099  pred_std=0.94250  lr=1.19e-04  best  35.3s
+Epoch   89/200  train=0.068244  val=0.164977  surface=0.091321  zero=0.783182  pred_mean=0.22702  pred_std=0.94250  lr=1.18e-04  best  32.9s
+Epoch   90/200  train=0.067683  val=0.165038  surface=0.092174  zero=0.783182  pred_mean=0.22928  pred_std=0.94275  lr=1.16e-04    33.4s
+Epoch   91/200  train=0.067140  val=0.163451  surface=0.090991  zero=0.783182  pred_mean=0.22916  pred_std=0.94458  lr=1.15e-04  best  34.7s
+Epoch   92/200  train=0.066806  val=0.164696  surface=0.093157  zero=0.783182  pred_mean=0.21793  pred_std=0.94434  lr=1.13e-04    33.6s
+Epoch   93/200  train=0.067570  val=0.164613  surface=0.090901  zero=0.783182  pred_mean=0.18924  pred_std=0.95544  lr=1.11e-04  best  31.9s
+Epoch   94/200  train=0.068469  val=0.166219  surface=0.092771  zero=0.783182  pred_mean=0.18140  pred_std=0.95178  lr=1.10e-04    34.1s
+Epoch   95/200  train=0.066498  val=0.166359  surface=0.092660  zero=0.783182  pred_mean=0.18173  pred_std=0.95129  lr=1.08e-04    33.8s
+Epoch   96/200  train=0.065596  val=0.165966  surface=0.092736  zero=0.783182  pred_mean=0.18250  pred_std=0.95227  lr=1.07e-04    33.3s
+Epoch   97/200  train=0.065714  val=0.161400  surface=0.088855  zero=0.783182  pred_mean=0.21317  pred_std=0.95276  lr=1.05e-04  best  32.3s
+Epoch   98/200  train=0.063999  val=0.163084  surface=0.090546  zero=0.783182  pred_mean=0.19467  pred_std=0.95740  lr=1.04e-04    35.0s
+Epoch   99/200  train=0.062929  val=0.162349  surface=0.091114  zero=0.783182  pred_mean=0.19614  pred_std=0.95776  lr=1.02e-04    33.3s
+Epoch  100/200  train=0.061771  val=0.159666  surface=0.088160  zero=0.783182  pred_mean=0.20450  pred_std=0.95752  lr=1.00e-04  best  32.2s
+  -> Geometry probe at epoch 100
+     IoU=0.3209  P=0.7035  R=0.3711  boundary=0.019  score=0.9539
+Epoch  101/200  train=0.063203  val=0.161104  surface=0.088873  zero=0.783182  pred_mean=0.18457  pred_std=0.95740  lr=9.89e-05    36.1s
+Epoch  102/200  train=0.061168  val=0.159872  surface=0.088322  zero=0.783182  pred_mean=0.18558  pred_std=0.95825  lr=9.74e-05    32.3s
+Epoch  103/200  train=0.060143  val=0.159639  surface=0.088851  zero=0.783182  pred_mean=0.18494  pred_std=0.95923  lr=9.58e-05    32.8s
+Epoch  104/200  train=0.059677  val=0.159444  surface=0.088209  zero=0.783182  pred_mean=0.18573  pred_std=0.95947  lr=9.43e-05    32.2s
+Epoch  105/200  train=0.059098  val=0.159164  surface=0.088891  zero=0.783182  pred_mean=0.18512  pred_std=0.95984  lr=9.27e-05    32.4s
+Epoch  106/200  train=0.058697  val=0.158307  surface=0.087743  zero=0.783182  pred_mean=0.18793  pred_std=0.95923  lr=9.11e-05  best  35.3s
+Epoch  107/200  train=0.058201  val=0.157207  surface=0.086951  zero=0.783182  pred_mean=0.18979  pred_std=0.96057  lr=8.96e-05  best  34.1s
+Epoch  108/200  train=0.057917  val=0.156583  surface=0.086567  zero=0.783182  pred_mean=0.19061  pred_std=0.95996  lr=8.80e-05  best  34.3s
+Epoch  109/200  train=0.057448  val=0.156763  surface=0.086581  zero=0.783182  pred_mean=0.18988  pred_std=0.96167  lr=8.65e-05    36.1s
+Epoch  110/200  train=0.056953  val=0.156240  surface=0.086749  zero=0.783182  pred_mean=0.19461  pred_std=0.96143  lr=8.49e-05    32.2s
+Epoch  111/200  train=0.056769  val=0.156198  surface=0.087268  zero=0.783182  pred_mean=0.19846  pred_std=0.96289  lr=8.34e-05    34.3s
+Epoch  112/200  train=0.057950  val=0.153593  surface=0.085100  zero=0.783182  pred_mean=0.22247  pred_std=0.95752  lr=8.19e-05  best  32.7s
+Epoch  113/200  train=0.057039  val=0.153369  surface=0.084983  zero=0.783182  pred_mean=0.22287  pred_std=0.95630  lr=8.03e-05  best  34.5s
+Epoch  114/200  train=0.056005  val=0.153084  surface=0.084802  zero=0.783182  pred_mean=0.22202  pred_std=0.95654  lr=7.88e-05  best  33.9s
+Epoch  115/200  train=0.056254  val=0.155632  surface=0.087766  zero=0.783182  pred_mean=0.19614  pred_std=0.95996  lr=7.73e-05    36.0s
+Epoch  116/200  train=0.055206  val=0.153646  surface=0.085320  zero=0.783182  pred_mean=0.19968  pred_std=0.96387  lr=7.58e-05    34.2s
+Epoch  117/200  train=0.053822  val=0.153873  surface=0.085938  zero=0.783182  pred_mean=0.19949  pred_std=0.96436  lr=7.42e-05    32.0s
+Epoch  118/200  train=0.054393  val=0.152097  surface=0.084737  zero=0.783182  pred_mean=0.20670  pred_std=0.96252  lr=7.27e-05  best  33.9s
+Epoch  119/200  train=0.053531  val=0.153034  surface=0.086911  zero=0.783182  pred_mean=0.19067  pred_std=0.96460  lr=7.12e-05    34.0s
+Epoch  120/200  train=0.052816  val=0.152183  surface=0.084400  zero=0.783182  pred_mean=0.19070  pred_std=0.96375  lr=6.98e-05  best  31.9s
+  -> Geometry probe at epoch 120
+     IoU=0.3228  P=0.7101  R=0.3718  boundary=0.018  score=0.9608
+Epoch  121/200  train=0.051372  val=0.151629  surface=0.084140  zero=0.783182  pred_mean=0.19150  pred_std=0.96460  lr=6.83e-05  best  34.9s
+Epoch  122/200  train=0.050821  val=0.150898  surface=0.083634  zero=0.783182  pred_mean=0.19284  pred_std=0.96448  lr=6.68e-05  best  33.5s
+Epoch  123/200  train=0.050487  val=0.150570  surface=0.083264  zero=0.783182  pred_mean=0.19559  pred_std=0.96387  lr=6.53e-05  best  35.7s
+Epoch  124/200  train=0.050022  val=0.150362  surface=0.083677  zero=0.783182  pred_mean=0.19351  pred_std=0.96484  lr=6.39e-05    34.3s
+Epoch  125/200  train=0.049639  val=0.149928  surface=0.083179  zero=0.783182  pred_mean=0.19513  pred_std=0.96423  lr=6.24e-05  best  31.5s
+Epoch  126/200  train=0.049329  val=0.149626  surface=0.082826  zero=0.783182  pred_mean=0.19528  pred_std=0.96484  lr=6.10e-05  best  35.7s
+Epoch  127/200  train=0.049128  val=0.149170  surface=0.082690  zero=0.783182  pred_mean=0.19638  pred_std=0.96448  lr=5.96e-05  best  33.8s
+Epoch  128/200  train=0.048740  val=0.149090  surface=0.083115  zero=0.783182  pred_mean=0.19958  pred_std=0.96631  lr=5.81e-05    34.7s
+Epoch  129/200  train=0.048763  val=0.148510  surface=0.082734  zero=0.783182  pred_mean=0.20377  pred_std=0.96606  lr=5.67e-05    32.3s
+Epoch  130/200  train=0.048744  val=0.146897  surface=0.082304  zero=0.783182  pred_mean=0.21759  pred_std=0.96130  lr=5.53e-05  best  31.5s
+Epoch  131/200  train=0.048554  val=0.147571  surface=0.082011  zero=0.783182  pred_mean=0.20193  pred_std=0.96667  lr=5.39e-05  best  33.7s
+Epoch  132/200  train=0.047949  val=0.147533  surface=0.081922  zero=0.783182  pred_mean=0.19778  pred_std=0.96570  lr=5.26e-05  best  34.3s
+Epoch  133/200  train=0.046671  val=0.147228  surface=0.081890  zero=0.783182  pred_mean=0.19727  pred_std=0.96558  lr=5.12e-05  best  34.0s
+Epoch  134/200  train=0.046263  val=0.146866  surface=0.081694  zero=0.783182  pred_mean=0.19812  pred_std=0.96594  lr=4.99e-05  best  34.0s
+Epoch  135/200  train=0.045768  val=0.146793  surface=0.081491  zero=0.783182  pred_mean=0.19849  pred_std=0.96631  lr=4.85e-05  best  35.4s
+Epoch  136/200  train=0.045421  val=0.146423  surface=0.081194  zero=0.783182  pred_mean=0.19901  pred_std=0.96667  lr=4.72e-05  best  33.9s
+Epoch  137/200  train=0.045356  val=0.146095  surface=0.081240  zero=0.783182  pred_mean=0.20087  pred_std=0.96570  lr=4.59e-05    33.8s
+Epoch  138/200  train=0.045303  val=0.145933  surface=0.081336  zero=0.783182  pred_mean=0.20087  pred_std=0.96594  lr=4.46e-05    32.5s
+Epoch  139/200  train=0.045040  val=0.145569  surface=0.081274  zero=0.783182  pred_mean=0.20206  pred_std=0.96667  lr=4.33e-05    32.1s
+Epoch  140/200  train=0.044457  val=0.145150  surface=0.081083  zero=0.783182  pred_mean=0.20148  pred_std=0.96692  lr=4.20e-05  best  31.4s
+  -> Geometry probe at epoch 140
+     IoU=0.3381  P=0.7135  R=0.3911  boundary=0.018  score=0.9938
+Epoch  141/200  train=0.044239  val=0.144880  surface=0.079947  zero=0.783182  pred_mean=0.20670  pred_std=0.96692  lr=4.08e-05  best  35.9s
+Epoch  142/200  train=0.043756  val=0.144759  surface=0.080136  zero=0.783182  pred_mean=0.20837  pred_std=0.96753  lr=3.95e-05    33.4s
+Epoch  143/200  train=0.043735  val=0.144427  surface=0.080112  zero=0.783182  pred_mean=0.20737  pred_std=0.96716  lr=3.83e-05    31.3s
+Epoch  144/200  train=0.044349  val=0.143040  surface=0.079273  zero=0.783182  pred_mean=0.21762  pred_std=0.96521  lr=3.71e-05  best  31.6s
+Epoch  145/200  train=0.042004  val=0.142885  surface=0.079068  zero=0.783182  pred_mean=0.21899  pred_std=0.96484  lr=3.59e-05  best  34.9s
+Epoch  146/200  train=0.041567  val=0.142691  surface=0.079017  zero=0.783182  pred_mean=0.21774  pred_std=0.96558  lr=3.47e-05  best  33.6s
+Epoch  147/200  train=0.041264  val=0.142595  surface=0.079092  zero=0.783182  pred_mean=0.21683  pred_std=0.96606  lr=3.35e-05    34.0s
+Epoch  148/200  train=0.041035  val=0.142505  surface=0.079039  zero=0.783182  pred_mean=0.21857  pred_std=0.96533  lr=3.24e-05    31.8s
+Epoch  149/200  train=0.040939  val=0.142332  surface=0.078745  zero=0.783182  pred_mean=0.21750  pred_std=0.96606  lr=3.13e-05  best  32.4s
+Epoch  150/200  train=0.040928  val=0.142770  surface=0.079193  zero=0.783182  pred_mean=0.21231  pred_std=0.96790  lr=3.01e-05    33.4s
+Epoch  151/200  train=0.040684  val=0.143106  surface=0.079341  zero=0.783182  pred_mean=0.20776  pred_std=0.96887  lr=2.90e-05    33.5s
+Epoch  152/200  train=0.040512  val=0.141827  surface=0.078728  zero=0.783182  pred_mean=0.21500  pred_std=0.96704  lr=2.80e-05  best  32.4s
+Epoch  153/200  train=0.040258  val=0.142581  surface=0.079069  zero=0.783182  pred_mean=0.20493  pred_std=0.96863  lr=2.69e-05    33.6s
+Epoch  154/200  train=0.039378  val=0.142388  surface=0.078913  zero=0.783182  pred_mean=0.20477  pred_std=0.96912  lr=2.59e-05    31.8s
+Epoch  155/200  train=0.039084  val=0.142447  surface=0.078934  zero=0.783182  pred_mean=0.20453  pred_std=0.96899  lr=2.48e-05    31.5s
+Epoch  156/200  train=0.038996  val=0.142306  surface=0.078922  zero=0.783182  pred_mean=0.20486  pred_std=0.96912  lr=2.38e-05    34.2s
+Epoch  157/200  train=0.038684  val=0.142107  surface=0.078918  zero=0.783182  pred_mean=0.20456  pred_std=0.96912  lr=2.28e-05    32.1s
+Epoch  158/200  train=0.038446  val=0.141889  surface=0.078637  zero=0.783182  pred_mean=0.20618  pred_std=0.96899  lr=2.19e-05  best  30.9s
+Epoch  159/200  train=0.038479  val=0.141587  surface=0.078758  zero=0.783182  pred_mean=0.20840  pred_std=0.96802  lr=2.09e-05    33.9s
+Epoch  160/200  train=0.038280  val=0.141367  surface=0.078544  zero=0.783182  pred_mean=0.20987  pred_std=0.96802  lr=2.00e-05  best  31.6s
+  -> Geometry probe at epoch 160
+     IoU=0.3404  P=0.7195  R=0.3925  boundary=0.018  score=1.0010
+Epoch  161/200  train=0.038277  val=0.140953  surface=0.078342  zero=0.783182  pred_mean=0.21494  pred_std=0.96802  lr=1.91e-05  best  34.7s
+Epoch  162/200  train=0.037740  val=0.140745  surface=0.077940  zero=0.783182  pred_mean=0.21503  pred_std=0.96802  lr=1.82e-05  best  36.3s
+Epoch  163/200  train=0.037331  val=0.140735  surface=0.077926  zero=0.783182  pred_mean=0.21457  pred_std=0.96802  lr=1.73e-05  best  34.6s
+Epoch  164/200  train=0.037201  val=0.140610  surface=0.078075  zero=0.783182  pred_mean=0.21536  pred_std=0.96802  lr=1.65e-05    35.8s
+Epoch  165/200  train=0.036805  val=0.140987  surface=0.078285  zero=0.783182  pred_mean=0.20792  pred_std=0.96936  lr=1.57e-05    32.5s
+Epoch  166/200  train=0.036689  val=0.140859  surface=0.078106  zero=0.783182  pred_mean=0.20853  pred_std=0.96936  lr=1.49e-05    33.3s
+Epoch  167/200  train=0.036532  val=0.140950  surface=0.078219  zero=0.783182  pred_mean=0.20798  pred_std=0.96997  lr=1.41e-05    32.2s
+Epoch  168/200  train=0.036263  val=0.140635  surface=0.078121  zero=0.783182  pred_mean=0.20969  pred_std=0.96912  lr=1.33e-05    31.4s
+Epoch  169/200  train=0.036366  val=0.140375  surface=0.078041  zero=0.783182  pred_mean=0.21228  pred_std=0.96851  lr=1.26e-05    32.3s
+Epoch  170/200  train=0.036144  val=0.140152  surface=0.077729  zero=0.783182  pred_mean=0.21448  pred_std=0.96899  lr=1.18e-05  best  33.0s
+Epoch  171/200  train=0.035859  val=0.140146  surface=0.077744  zero=0.783182  pred_mean=0.21390  pred_std=0.96899  lr=1.11e-05    33.7s
+Epoch  172/200  train=0.035564  val=0.140227  surface=0.077777  zero=0.783182  pred_mean=0.21167  pred_std=0.96948  lr=1.05e-05    31.5s
+Epoch  173/200  train=0.035523  val=0.140262  surface=0.078031  zero=0.783182  pred_mean=0.20944  pred_std=0.96997  lr=9.82e-06    31.2s
+Epoch  174/200  train=0.035434  val=0.139955  surface=0.077612  zero=0.783182  pred_mean=0.21332  pred_std=0.96948  lr=9.18e-06  best  31.7s
+Epoch  175/200  train=0.035265  val=0.140021  surface=0.077719  zero=0.783182  pred_mean=0.21127  pred_std=0.96973  lr=8.57e-06    34.9s
+Epoch  176/200  train=0.035187  val=0.140010  surface=0.077776  zero=0.783182  pred_mean=0.21072  pred_std=0.96960  lr=7.99e-06    33.0s
+Epoch  177/200  train=0.034751  val=0.140022  surface=0.077706  zero=0.783182  pred_mean=0.20963  pred_std=0.97009  lr=7.42e-06    31.6s
+Epoch  178/200  train=0.034645  val=0.139906  surface=0.077620  zero=0.783182  pred_mean=0.21164  pred_std=0.96997  lr=6.88e-06    31.6s
+Epoch  179/200  train=0.034503  val=0.139746  surface=0.077539  zero=0.783182  pred_mean=0.21289  pred_std=0.96960  lr=6.36e-06  best  31.3s
+Epoch  180/200  train=0.034382  val=0.139707  surface=0.077552  zero=0.783182  pred_mean=0.21268  pred_std=0.96985  lr=5.87e-06    35.2s
+  -> Geometry probe at epoch 180
+     IoU=0.3399  P=0.7192  R=0.3918  boundary=0.018  score=0.9999
+Epoch  181/200  train=0.034253  val=0.139848  surface=0.077703  zero=0.783182  pred_mean=0.21024  pred_std=0.97034  lr=5.40e-06    34.8s
+Epoch  182/200  train=0.034128  val=0.139786  surface=0.077626  zero=0.783182  pred_mean=0.21051  pred_std=0.97021  lr=4.95e-06    32.6s
+Epoch  183/200  train=0.033974  val=0.139710  surface=0.077585  zero=0.783182  pred_mean=0.21103  pred_std=0.97034  lr=4.53e-06    31.4s
+Epoch  184/200  train=0.033849  val=0.139660  surface=0.077526  zero=0.783182  pred_mean=0.21158  pred_std=0.96997  lr=4.13e-06  best  31.6s
+Epoch  185/200  train=0.033764  val=0.139722  surface=0.077634  zero=0.783182  pred_mean=0.21060  pred_std=0.97034  lr=3.75e-06    35.1s
+Epoch  186/200  train=0.033601  val=0.139566  surface=0.077518  zero=0.783182  pred_mean=0.21204  pred_std=0.97009  lr=3.40e-06  best  33.5s
+Epoch  187/200  train=0.033574  val=0.139573  surface=0.077507  zero=0.783182  pred_mean=0.21136  pred_std=0.97009  lr=3.07e-06  best  34.2s
+Epoch  188/200  train=0.033482  val=0.139574  surface=0.077547  zero=0.783182  pred_mean=0.21109  pred_std=0.97021  lr=2.76e-06    35.1s
+Epoch  189/200  train=0.033464  val=0.139565  surface=0.077520  zero=0.783182  pred_mean=0.21173  pred_std=0.97009  lr=2.48e-06    31.4s
+Epoch  190/200  train=0.033248  val=0.139468  surface=0.077395  zero=0.783182  pred_mean=0.21237  pred_std=0.97009  lr=2.23e-06  best  31.6s
+Epoch  191/200  train=0.033290  val=0.139565  surface=0.077516  zero=0.783182  pred_mean=0.21149  pred_std=0.97009  lr=1.99e-06    33.8s
+Epoch  192/200  train=0.033220  val=0.139519  surface=0.077479  zero=0.783182  pred_mean=0.21173  pred_std=0.97009  lr=1.78e-06    32.7s
+Epoch  193/200  train=0.033127  val=0.139458  surface=0.077437  zero=0.783182  pred_mean=0.21213  pred_std=0.97009  lr=1.60e-06    32.9s
+Epoch  194/200  train=0.033093  val=0.139467  surface=0.077443  zero=0.783182  pred_mean=0.21194  pred_std=0.97009  lr=1.44e-06    31.6s
+Epoch  195/200  train=0.033039  val=0.139473  surface=0.077455  zero=0.783182  pred_mean=0.21158  pred_std=0.97021  lr=1.31e-06    32.0s
+Epoch  196/200  train=0.033008  val=0.139432  surface=0.077414  zero=0.783182  pred_mean=0.21213  pred_std=0.97009  lr=1.20e-06    33.9s
+Epoch  197/200  train=0.032946  val=0.139457  surface=0.077422  zero=0.783182  pred_mean=0.21173  pred_std=0.97009  lr=1.11e-06    33.7s
+Epoch  198/200  train=0.032902  val=0.139454  surface=0.077441  zero=0.783182  pred_mean=0.21170  pred_std=0.97009  lr=1.05e-06    32.0s
+Epoch  199/200  train=0.032831  val=0.139466  surface=0.077450  zero=0.783182  pred_mean=0.21167  pred_std=0.97009  lr=1.01e-06    31.7s
+Epoch  200/200  train=0.032914  val=0.139450  surface=0.077475  zero=0.783182  pred_mean=0.21158  pred_std=0.97046  lr=1.00e-06    33.4s
+  -> Geometry probe at epoch 200
+     IoU=0.3347  P=0.6964  R=0.3919  boundary=0.017  score=0.9809
+
+Training complete. Best epoch: 190
+Best selection loss: 0.077395
+Best geometry probe: epoch 160 | IoU=0.3404 | score=1.0010
+Recommended checkpoint: checkpoints/best_geometry.pt
+Best model saved to: /content/deepsdf_airport/checkpoints/best.pt

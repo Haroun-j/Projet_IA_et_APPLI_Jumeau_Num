@@ -1,0 +1,14 @@
+{
+  "reference_vertices": 11252,
+  "reference_faces": 19816,
+  "predicted_vertices": 56933,
+  "predicted_faces": 104678,
+  "chamfer_l1_m": 151.13709168237895,
+  "chamfer_l2_m2": 33956.62052851442,
+  "hausdorff_approx_m": 695.3502749334696,
+  "occupancy_iou": 0.13886615376220876,
+  "occupancy_precision": 0.14059996685266007,
+  "occupancy_recall": 0.9184409960303139,
+  "predicted_obstacle_voxels": 18101,
+  "reference_obstacle_voxels": 2771
+}

@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "fichier_source": "dataset_subset_3000.h5",
+    "fichier_original": "/lustre/fsn1/projects/rech/hjh/uhf15iw/data/dataset_full.h5",
+    "date_analyse": "2026-03-28T15:13:58.911498",
+    "taille_go": 116.047,
+    "taille_octets": 124604881976
+  },
+  "parametres_simulation": {
+    "polluant": "NOx",
+    "unite_concentration": "µg/m³",
+    "unite_sdf": "m",
+    "n_particules": 1000000,
+    "pas_de_temps_s": 0.5,
+    "Nz_couches": 64,
+    "T_steps_total": 7200,
+    "resolution_spatiale_m": {
+      "dx": 5.0,
+      "dy": 5.0,
+      "dz": 3.0
+    }
+  },
+  "structure_dataset": {
+    "n_scenarios_total_original": 10000,
+    "n_scenarios_subset": 3000,
+    "subset_par_bin": 125,
+    "seed_echantillonnage": 42,
+    "nb_groupes_hdf5": 3000,
+    "nb_datasets_hdf5": 27000,
+    "datasets_par_scenario": 9,
+    "noms_datasets": [
+      "concentration_grid",
+      "emissions_total",
+      "gse_sdf",
+      "lto_sdf",
+      "obstacle_mask",
+      "obstacle_sdf",
+      "wind_u",
+      "wind_v",
+      "wind_w"
+    ]
+  },
+  "description_datasets": {
+    "concentration_grid": "Grille 3D de concentration NOx (Nz x Nx x Ny) en µg/m³",
+    "wind_u": "Composante U du vent (Nz x Nx x Ny) en m/s",
+    "wind_v": "Composante V du vent (Nz x Nx x Ny) en m/s",
+    "wind_w": "Composante W du vent vertical (Nz x Nx x Ny) en m/s",
+    "obstacle_mask": "Masque binaire des obstacles/bâtiments (Nz x Nx x Ny)",
+    "obstacle_sdf": "Signed Distance Field des obstacles (Nz x Nx x Ny) en m",
+    "gse_sdf": "SDF de la surface du sol (Nz x Nx x Ny) en m",
+    "lto_sdf": "SDF lié aux opérations LTO (Nz x Nx x Ny) en m",
+    "emissions_total": "Total des émissions simulées (Nz x Nx x Ny)"
+  },
+  "format_donnees": {
+    "dtype": "float32",
+    "compression": "gzip",
+    "chunks_exemple": [
+      16,
+      64,
+      64
+    ],
+    "tailles_grilles": {
+      "140x140": {
+        "nb_scenarios": 1500,
+        "shape_dataset": [
+          64,
+          140,
+          140
+        ],
+        "category": 1
+      },
+      "300x300": {
+        "nb_scenarios": 750,
+        "shape_dataset": [
+          64,
+          300,
+          300
+        ],
+        "category": 2
+      },
+      "500x500": {
+        "nb_scenarios": 750,
+        "shape_dataset": [
+          64,
+          500,
+          500
+        ],
+        "category": 3
+      }
+    },
+    "note": "Les scénarios category=4 utilisent aussi 140x140"
+  },
+  "distribution_scenarios": {
+    "par_categorie": {
+      "1": 750,
+      "2": 750,
+      "4": 750,
+      "3": 750
+    },
+    "par_classe_stabilite_atmospherique": {
+      "IV": 500,
+      "III/1": 500,
+      "II": 500,
+      "V": 500,
+      "I": 500,
+      "III/2": 500
+    },
+    "par_taille_grille": {
+      "140x140": 1500,
+      "300x300": 750,
+      "500x500": 750
+    }
+  },
+  "statistiques_meteorologiques": {
+    "U_10_vent_ms": {
+      "min": 1.002,
+      "max": 14.995,
+      "mean": 3.616,
+      "std": 3.307
+    },
+    "L_Monin_Obukhov_m": {
+      "description": "Longueur de Monin-Obukhov (99999 = stabilité neutre/convective extrême)",
+      "min": -102.64,
+      "max": 99999.0,
+      "mean": 16663.61
+    },
+    "n_batiments": {
+      "min": 0,
+      "max": 54,
+      "mean": 8.7
+    },
+    "n_pistes": {
+      "min": 1,
+      "max": 4,
+      "mean": 1.9
+    },
+    "n_particules_actives": {
+      "min": 0,
+      "max": 498088,
+      "mean": 10210.0
+    }
+  },
+  "qualite_donnees": {
+    "datasets_avec_valeurs_non_nulles": 25477,
+    "datasets_totaux": 27000,
+    "pourcentage_non_nul": 94.4,
+    "note": "Les datasets à 0 correspondent à des scénarios sans particules actives (n_active_particles=0)"
+  }
+}

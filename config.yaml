@@ -1,0 +1,101 @@
+airport:
+  name: "Paris-Orly"
+  center_lat: 48.73
+  center_lon: 2.36
+  radius_m: 1500
+  default_height_m: 10.0
+  height_per_level_m: 3.5
+  open_alaqs_database: "data_sources/airport_study.alaqs"
+  footprints_geojson: ""
+  footprints_crs_epsg: 4326
+
+sampling:
+  n_surface_points: 200000
+  n_near_surface_points: 1400000
+  n_far_points: 400000
+  near_surface_sigma: 0.00075
+  clamp_distance: 2.0
+
+model:
+  n_frequencies: 8
+  hidden_dim: 512
+  n_hidden_layers: 8
+  skip_connection_at: 4
+  activation: "relu"
+
+training:
+  batch_size: 16384
+  learning_rate: 0.0002
+  n_epochs: 200
+  clamp_delta: 2.0
+  lr_scheduler: "cosine"
+  save_every_n_epochs: 20
+  device: "cuda"
+  validation_fraction: 0.03
+  seed: 42
+  num_workers: 4
+  gradient_clip: 1.0
+  early_stopping_patience: 50
+  surface_zero_eps: 0.00001
+  surface_focus_band: 0.5
+
+domain:
+  x_min: -1500.0
+  x_max: 1500.0
+  y_min: -1500.0
+  y_max: 1500.0
+  z_max: 200.0
+  grid_nx: 140
+  grid_ny: 140
+  grid_nz: 64
+
+mask:
+  surface_level: 0.0
+  prefer_cleaned_reconstruction: true
+
+monitoring:
+  enabled: true
+  every_n_epochs: 20
+  warmup_epochs: 20
+  fail_fast_after_epoch: 60
+  collapse_patience: 5
+  min_pred_std: 0.02
+  max_surface_ratio_to_baseline_after_warmup: 0.65
+  persistent_bad_probes: 2
+  min_iou_after_fail_fast: 0.04
+  min_precision_after_fail_fast: 0.08
+  min_recall_after_fail_fast: 0.08
+  max_boundary_fraction_after_fail_fast: 0.55
+  chamfer_samples: 10000
+  prefer_geometry_checkpoint_min_iou: 0.10
+  mirror_every_n_epochs: 5
+  coarse_grid_nx: 96
+  coarse_grid_ny: 96
+  coarse_grid_nz: 48
+
+runtime_preparation:
+  xy_margin_m: 120.0
+  z_margin_m: 20.0
+  target_xy_resolution_m: 6.0
+  target_z_resolution_m: 2.5
+  n_surface_points: 250000
+  n_near_surface_points: 1600000
+  n_far_points: 250000
+  near_surface_sigma: 0.00075
+  clamp_distance: 2.0
+  n_epochs: 200
+  save_every_n_epochs: 20
+  early_stopping_patience: 50
+
+performance:
+  amp: true
+  amp_dtype: "float16"
+  tf32: true
+  cudnn_benchmark: true
+  matmul_precision: "high"
+
+paths:
+  meshes: "data/meshes"
+  sdf_dataset: "data/sdf_dataset"
+  checkpoints: "checkpoints"
+  outputs: "outputs"

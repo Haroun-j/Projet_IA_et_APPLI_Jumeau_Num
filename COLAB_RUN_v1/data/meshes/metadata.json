@@ -1,0 +1,21 @@
+{
+  "airport": "Paris-Orly",
+  "source_type": "osm",
+  "open_alaqs_database": "/content/deepsdf_airport/data_sources/airport_study.alaqs",
+  "footprints_geojson": null,
+  "n_buildings": 672,
+  "n_vertices": 11252,
+  "n_faces": 19816,
+  "openalaqs_layer_counts": {
+    "buildings": 0,
+    "gates": 0,
+    "runways": 0,
+    "taxiways": 0,
+    "roadways": 0,
+    "parking": 0,
+    "area_sources": 0,
+    "point_sources": 0
+  },
+  "openalaqs_reference_geojson": "openalaqs_reference_layers.geojson",
+  "openalaqs_reference_summary": "openalaqs_reference_layers.json"
+}
